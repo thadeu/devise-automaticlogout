@@ -1,11 +1,11 @@
 .bundle/
 log/*.log
 pkg/
-test/rails/db/*.sqlite3
-test/rails/db/*.sqlite3-journal
-test/rails/log/*.log
-test/rails/log/development.log
-test/rails/tmp/
+test/dummy/db/*.sqlite3
+test/dummy/db/*.sqlite3-journal
+test/dummy/log/*.log
+test/dummy/log/development.log
+test/dummy/tmp/
 .DS_Store
 .yardoc/
 Gemfile.lock
