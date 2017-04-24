@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Devise::Automaticlogout::VERSION
   s.authors     = ["Thadeu Esteves Jr"]
   s.email       = ["tadeuu@gmail.com"]
-  s.homepage      = "http://github.com/thadeu/devise-automaticlogout"
+  s.homepage      = "https://github.com/Thadeu/devise-automaticlogout"
   s.summary       = %q{Provides automatic session timeout in a Rails Devise application.}
   s.description   = %q{Provides automatic session timeout in a Rails Devise application.}
   s.license     = "MIT"
