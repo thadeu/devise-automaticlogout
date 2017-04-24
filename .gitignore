@@ -1,0 +1,12 @@
+.bundle/
+log/*.log
+pkg/
+test/rails/db/*.sqlite3
+test/rails/db/*.sqlite3-journal
+test/rails/log/*.log
+test/rails/log/development.log
+test/rails/tmp/
+.DS_Store
+.yardoc/
+Gemfile.lock
+*.gem
