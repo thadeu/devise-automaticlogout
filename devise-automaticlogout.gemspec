@@ -20,10 +20,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', rails_versions
   s.add_dependency "devise"
 
-  # Future does not need this gem
-  # TODO: change code for ES6/7
-  s.add_dependency "jquery-rails"
-
   s.add_development_dependency 'rubocop'
   s.add_development_dependency "sqlite3"
 end

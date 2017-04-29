@@ -1,8 +1,8 @@
 module Devise
   module AutomaticLogout
     module Helpers
-      def regressive_timer
-        render 'automatic_logout/timer'
+      def regressive_timer(visible: false)
+        render 'automatic_logout/timer', visible: visible
       end
     end
   end
