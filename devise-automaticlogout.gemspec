@@ -16,10 +16,9 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  rails_versions = ['>= 4']
-  s.add_dependency 'rails', rails_versions
-  s.add_dependency "devise"
+  s.add_dependency 'rails', '~> 4'
+  s.add_dependency 'devise', '~> 0'
 
-  s.add_development_dependency 'rubocop'
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency 'rubocop', '~> 0'
+  s.add_development_dependency "sqlite3", '~> 0'
 end
