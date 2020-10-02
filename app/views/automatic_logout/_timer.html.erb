@@ -1,5 +1,7 @@
 <span class="regressive-timer"
+  style="<%= "display: #{visible ? 'block' : 'none'}" %>"
   data-visible="<%= visible %>"
-  data-seconds="<%= session[:seconds] %>"
-  data-message="<%= session[:message] %>">
+  data-alert="<%= alert.presence || false %>"
+  data-seconds="<%= session[:devise_autl_seconds] %>"
+  data-message="<%= session[:devise_autl_message] %>">
 </span>

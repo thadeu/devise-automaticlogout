@@ -1,34 +1,30 @@
 module Devise
-  module AutomaticLogout
+  module Automaticlogout
     module Controllers
       extend ActiveSupport::Concern
 
-      included do
-        ::ApplicationController.before_action do |c|
-          if current_user.present?
-            key_classify = Devise.mappings.keys.first
-            resource_name = Devise.mappings[key_classify].class_name.to_s
-            # get instance for class using devise
-            c.session[:seconds] = resource_name.classify.constantize.timeout_in.seconds.to_i
-            # I18n.t devise.automaticlogout.message
-            c.session[:message] = I18n.t 'devise.automaticlogout.message' || 'Session expired!'
-          end
+      DEFAULT_MESSAGE = 'Session expired! You will be redirect.'.freeze
 
-          ::ApplicationController.send :define_method, :automatic_logout_status do
-            Rails.logger.info 'Sessão atualizada'
-            render json: {
-              live: !current_user.nil?,
-              message: session[:message],
-              seconds: session[:seconds]
-            }, status: :ok
-          end
+      module ClassMethods
+        def devise_automatic_logout(options = {})
+          prepend_before_action do |c|
+            time = options.fetch(:time, nil)
+            message = options.fetch(:message, DEFAULT_MESSAGE)
+            scope = options.fetch(:scope, 'user')
 
-          ::ApplicationController.send :define_method, :automatic_logout_destroy do
-            Rails.logger.info 'Sessão destruída'
-            session[:seconds] = ''
-            session[:live] = !current_user.nil?
-            reset_session
-            redirect_to '/', notice: session[:message]
+            seconds = if time&.positive?
+                        time
+                      else
+                        mapping = Devise.mappings[scope.to_sym]
+                        return unless mapping
+
+                        mapping.to.timeout_in.seconds.to_i
+                      end
+
+            if seconds
+              c.session[:devise_autl_message] = message
+              c.session[:devise_autl_seconds] = seconds
+            end
           end
         end
       end
