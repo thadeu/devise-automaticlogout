@@ -10,3 +10,4 @@ test/dummy/tmp/
 .yardoc/
 Gemfile.lock
 *.gem
+.byebug_history
