@@ -86,6 +86,18 @@ Esse helper deve ser usado em qualquer view, ele é importante, pois tudo será 
 * visible: mostra um timer regressivo
 * alert: lança um `window.alert` se ativado, ao final do timer
 
+E se você quiser, que uma determinada `action` ou um `controller` todo, não execute o timer? É fácil também, olha só.
+
+```ruby
+class DashboardController < ApplicationController
+  prepend_before_action { request.env['devise.skip_timeout'] = true }
+
+  def index; end
+end
+```
+
+Se quiser saber mais sobre isso, acesse a [Wiki do Devise](https://github.com/heartcombo/devise/wiki/How-to-:-Skip-Devise-Session-Timeout-for-Other-controller-actions)
+
 ## Configurando Javascript
 
 Adicione no seu application.js, o seguinte:
