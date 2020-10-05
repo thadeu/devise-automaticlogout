@@ -1,7 +1,9 @@
-<span class="regressive-timer"
-  style="<%= "display: #{visible ? 'block' : 'none'}" %>"
-  data-visible="<%= visible %>"
-  data-alert="<%= alert.presence || false %>"
-  data-seconds="<%= session[:devise_autl_seconds] %>"
-  data-message="<%= session[:devise_autl_message] %>">
-</span>
+<% unless request.env["devise.skip_timeout"] %>
+  <span class="regressive-timer"
+    style="<%= "display: #{visible ? 'block' : 'none'}" %>"
+    data-visible="<%= visible %>"
+    data-alert="<%= alert.presence || false %>"
+    data-seconds="<%= session[:devise_autl_seconds] %>"
+    data-message="<%= session[:devise_autl_message] %>">
+  </span>
+<% end %>
