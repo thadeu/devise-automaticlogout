@@ -16,7 +16,7 @@ Faz com que a sessão seja destruída após a conclusão do tempo estipulado. É
 Adicione ao seu Gemfile
 
 ```ruby
-gem 'devise-automaticlogout', '~> 1.0.1'
+gem 'devise-automaticlogout', '~> 1.0.2'
 ```
 
 Rode o `bundle install`
